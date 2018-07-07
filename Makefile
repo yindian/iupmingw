@@ -1,9 +1,12 @@
 ODIR = o
 IUPSRC = ..
-LUAINC = -I/usr/local/include
-#LUALIB = -L/usr/local/lib -llua
-LUALIB = -L/usr/local/bin -llua53
-LUABIN = /usr/local/bin/lua.exe
+#LUAINC = -I/usr/local/include
+##LUALIB = -L/usr/local/lib -llua
+#LUALIB = -L/usr/local/bin -llua53
+#LUABIN = /usr/local/bin/lua.exe
+LUAINC = -I/mingw32/include
+LUALIB = -L/mingw32/lib -llua
+LUABIN = /mingw32/bin/lua.exe
 
 AR= ar rcu
 CC= gcc
@@ -108,10 +111,10 @@ $(OBJWIN): $(ODIR)/%.o: $(IUPSRC)/src/win/%.c | $(ODIR)
 $(ODIR)/libiup.a : $(OBJIUP) $(OBJWIN) $(OBJIUPLUA) $(OBJCTRL)
 	$(AR) $@ $^
 
-scintilla.dll :
+scintilla.dll : luaiup.dll
 	$(MAKE) -f Makefile.scintilla
 
-iupluaimglib.dll :
+iupluaimglib.dll : luaiup.dll
 	$(MAKE) -f Makefile.imglib
 
 luaiup.dll : $(OBJIUP) $(OBJWIN) $(OBJIUPLUA) $(OBJCTRL) 

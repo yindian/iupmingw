@@ -2,8 +2,10 @@ ODIR = o
 IUPSRC = ..
 IMGLIB = $(IUPSRC)/srcimglib
 CC = gcc
-LUAINC = -I/usr/local/include
-LUALIB = -L/usr/local/bin -llua53
+#LUAINC = -I/usr/local/include
+#LUALIB = -L/usr/local/bin -llua53
+LUAINC = -I/mingw32/include
+LUALIB = -L/mingw32/lib -llua
 
 CFLAGS = -Wall
 

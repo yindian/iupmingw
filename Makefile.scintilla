@@ -2,9 +2,12 @@ ODIR = o
 IUPSRC = ..
 CXX = g++
 CC = gcc
-LUAINC = -I/usr/local/include
-LUALIB = -L/usr/local/bin -llua53
-LUABIN = /usr/local/bin/lua.exe
+#LUAINC = -I/usr/local/include
+#LUALIB = -L/usr/local/bin -llua53
+#LUABIN = /usr/local/bin/lua.exe
+LUAINC = -I/mingw32/include
+LUALIB = -L/mingw32/lib -llua
+LUABIN = /mingw32/bin/lua.exe
 
 CFLAGS = -O2 -Wall
 CXXFLAGS = --std=c++11 $(CFLAGS)
